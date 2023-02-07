@@ -1,24 +1,30 @@
 <template>
   <form @submit.prevent="addTodo">
-    <input type="text" v-model="todo">
+    <input type="text" v-model="todo" placeholder="Todo Ekle">
     <button>Ekle</button>
   </form>
 </template>
 
 <script>
 import {ref} from 'vue';
-import {useRouter} from 'vue-router';
+import { useStore } from 'vuex';
 
 export default {
     setup(){
-        const router = useRouter();
-        const todo = ref(null);
+        const store = useStore();
+        const todo = ref('');
         const addTodo = () => {
-            router.push({path:'/',query:{data:todo.value}});
-            todo.value = "";
+            const objectTodo = {
+                newTodo:todo.value,
+                done:true,
+            };
+            //store.commit ile mutation içindeki metotlara ulaşırım. 1 metot adı 2 veri ile ilem gerçekleştirilir.Yeni todo eklemiş oldu
+            store.commit('addTodo',objectTodo);
+
         }
 
         return {todo,addTodo}
+
     }
 }
 </script>
