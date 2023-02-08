@@ -18,8 +18,9 @@ export default {
                 newTodo:todo.value,
                 done:true,
             };
-            //store.commit ile mutation içindeki metotlara ulaşırım. 1 metot adı 2 veri ile ilem gerçekleştirilir.Yeni todo eklemiş oldu
-            store.commit('addTodo',objectTodo);
+            
+            //store.dispathc ile action'i tetikleyeceğim oda gidip addTodo mutation ' tetikleyecektir.
+            store.dispatch("addTodoAction",objectTodo);
 
         }
 

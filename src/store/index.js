@@ -24,6 +24,11 @@ export default createStore({
     }
   },
   actions: {
+    adTodoAction(context,todoObject){
+      console.log(context);
+      context.commit("addTodo",todoObject);
+      //Mutation'da bulunan metodu çağırdıj ve todoObject'i gönderdik.
+    }
   },
   modules: {
   }
