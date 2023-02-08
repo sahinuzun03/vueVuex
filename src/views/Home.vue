@@ -24,10 +24,6 @@ export default {
 
 
 
-
-
-
-
 <style>
 /* Vuex bize bir bilgiyi alt componentlere iletmek için bize bir alan tanımlar ve ihtiyacı olan komponentler buradan bu bilgiye ulaşıp değiştirmek isterlerse değiştirirler. */
 
