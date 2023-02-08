@@ -10,6 +10,17 @@ export default createStore({
   ],
   },
   getters: {
+    //bir filtreleme vs işlemi yapmak istediğimiz zaman getters ile yapabiliriz.
+
+    todoTotalCount(state){
+      return state.todoList.length;
+    },
+    todoDoneCount(state){
+      return state.todoList.filter((x) => x.done == true).length;
+    },
+    todoNotDoneCount(state){
+      return state.todoList.filter((x) => x.done == false).length;
+    }
   },
   mutations: {
     //Bir state ' veri ekleme , güncelleme , silme işlemleri yaparken kullanırım.
@@ -31,5 +42,6 @@ export default createStore({
     }
   },
   modules: {
+    //Birden fazla store yapısını buradan tanımlayıp kullanabiliriz. sonrasında store.state.a / store.state.b diyerek işeleme koyabilriiz.
   }
 })
